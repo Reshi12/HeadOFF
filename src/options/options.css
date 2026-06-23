@@ -1,0 +1,278 @@
+/* ─── Options Page Styles ───────────────────────────────────── */
+
+.options-container {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: var(--space-8) var(--space-6);
+  min-height: 100vh;
+}
+
+.options-header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  margin-bottom: var(--space-8);
+  padding-bottom: var(--space-6);
+  border-bottom: 1px solid var(--border-default);
+}
+
+.options-header svg {
+  color: var(--color-primary-600);
+}
+
+.options-header h1 {
+  font-size: var(--text-2xl);
+  font-weight: 700;
+  background: linear-gradient(135deg, var(--color-primary-600), var(--color-primary-800));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.options-header .version {
+  font-size: var(--text-xs);
+  color: var(--text-tertiary);
+  margin-left: auto;
+}
+
+/* ─── Section ───────────────────────────────────────────────── */
+.options-section {
+  margin-bottom: var(--space-8);
+}
+
+.options-section h2 {
+  font-size: var(--text-lg);
+  font-weight: 600;
+  margin-bottom: var(--space-4);
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.options-section h2 svg {
+  color: var(--color-primary-500);
+}
+
+.options-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-lg);
+  padding: var(--space-5);
+}
+
+.options-row {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  padding: var(--space-3) 0;
+}
+
+.options-row + .options-row {
+  border-top: 1px solid var(--border-subtle);
+}
+
+.options-row-label {
+  flex: 1;
+}
+
+.options-row-label h3 {
+  font-size: var(--text-sm);
+  font-weight: 600;
+  margin-bottom: 2px;
+}
+
+.options-row-label p {
+  font-size: var(--text-xs);
+  color: var(--text-tertiary);
+}
+
+/* ─── Toggle Switch ─────────────────────────────────────────── */
+.toggle {
+  position: relative;
+  width: 44px;
+  height: 24px;
+  flex-shrink: 0;
+}
+
+.toggle input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.toggle-slider {
+  position: absolute;
+  inset: 0;
+  background: var(--border-strong);
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background var(--transition-fast);
+}
+
+.toggle-slider::before {
+  content: '';
+  position: absolute;
+  left: 3px;
+  top: 3px;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: white;
+  transition: transform var(--transition-fast);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+}
+
+.toggle input:checked + .toggle-slider {
+  background: var(--color-primary-500);
+}
+
+.toggle input:checked + .toggle-slider::before {
+  transform: translateX(20px);
+}
+
+/* ─── API Key Input Group ───────────────────────────────────── */
+.api-key-group {
+  display: flex;
+  gap: var(--space-2);
+  margin-top: var(--space-2);
+}
+
+.api-key-group input {
+  flex: 1;
+}
+
+.api-key-status {
+  margin-top: var(--space-2);
+  font-size: var(--text-xs);
+  padding: var(--space-2) var(--space-3);
+  border-radius: var(--radius-md);
+}
+
+.api-key-status.valid {
+  background: rgba(16, 185, 129, 0.1);
+  color: #059669;
+}
+
+.api-key-status.invalid {
+  background: rgba(239, 68, 68, 0.1);
+  color: #dc2626;
+}
+
+.api-key-status.testing {
+  background: rgba(99, 102, 241, 0.1);
+  color: #4f46e5;
+}
+
+/* ─── Storage Usage ─────────────────────────────────────────── */
+.storage-bar {
+  width: 100%;
+  height: 8px;
+  background: var(--bg-surface-hover);
+  border-radius: 4px;
+  overflow: hidden;
+  margin-top: var(--space-2);
+}
+
+.storage-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--color-primary-500), var(--color-primary-400));
+  border-radius: 4px;
+  transition: width var(--transition-slow);
+}
+
+.storage-info {
+  display: flex;
+  justify-content: space-between;
+  font-size: var(--text-xs);
+  color: var(--text-tertiary);
+  margin-top: var(--space-1);
+}
+
+/* ─── Theme Selector ────────────────────────────────────────── */
+.theme-select {
+  display: flex;
+  gap: var(--space-2);
+}
+
+.theme-option {
+  padding: var(--space-2) var(--space-4);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-md);
+  background: var(--bg-surface);
+  color: var(--text-secondary);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  font-family: var(--font-sans);
+}
+
+.theme-option:hover {
+  border-color: var(--color-primary-300);
+}
+
+.theme-option.active {
+  border-color: var(--color-primary-500);
+  background: rgba(99, 102, 241, 0.08);
+  color: var(--color-primary-600);
+}
+
+/* ─── Danger Zone ───────────────────────────────────────────── */
+.danger-zone {
+  border-color: rgba(239, 68, 68, 0.2);
+}
+
+.danger-zone h2 {
+  color: var(--color-error);
+}
+
+/* ─── Export/Import buttons ─────────────────────────────────── */
+.export-import-row {
+  display: flex;
+  gap: var(--space-3);
+  margin-top: var(--space-3);
+}
+
+.file-input-label {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-4);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-md);
+  background: var(--bg-surface);
+  color: var(--text-primary);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  font-family: var(--font-sans);
+}
+
+.file-input-label:hover {
+  background: var(--bg-surface-hover);
+  border-color: var(--border-strong);
+}
+
+.file-input-label input {
+  display: none;
+}
+
+/* ─── Toast ─────────────────────────────────────────────────── */
+.options-toast {
+  position: fixed;
+  bottom: var(--space-6);
+  right: var(--space-6);
+  padding: var(--space-3) var(--space-5);
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-xl);
+  font-size: var(--text-sm);
+  z-index: 1000;
+  animation: slideInUp var(--transition-slow) ease-out;
+}
+
+.options-toast.success { border-left: 3px solid var(--color-success); }
+.options-toast.error { border-left: 3px solid var(--color-error); }
