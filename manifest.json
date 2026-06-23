@@ -1,0 +1,55 @@
+{
+  "manifest_version": 3,
+  "name": "Handoff",
+  "version": "1.0.0",
+  "description": "Carry the thread. Drop the repeat-yourself. Transfer AI conversations between ChatGPT, Claude, and Gemini seamlessly.",
+  "permissions": ["storage", "activeTab", "scripting", "alarms"],
+  "host_permissions": [
+    "https://chatgpt.com/*",
+    "https://chat.openai.com/*",
+    "https://claude.ai/*",
+    "https://gemini.google.com/*",
+    "https://generativelanguage.googleapis.com/*"
+  ],
+  "background": {
+    "service_worker": "src/background/index.ts",
+    "type": "module"
+  },
+  "action": {
+    "default_popup": "src/popup/index.html",
+    "default_icon": {
+      "16": "public/icons/icon111.png",
+      "48": "public/icons/icon111.png",
+      "128": "public/icons/icon111.png"
+    }
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://chatgpt.com/*", "https://chat.openai.com/*"],
+      "js": ["src/content/chatgpt.ts"],
+      "run_at": "document_idle"
+    },
+    {
+      "matches": ["https://claude.ai/*"],
+      "js": ["src/content/claude.ts"],
+      "run_at": "document_idle"
+    },
+    {
+      "matches": ["https://gemini.google.com/*"],
+      "js": ["src/content/gemini.ts"],
+      "run_at": "document_idle"
+    }
+  ],
+  "options_page": "src/options/index.html",
+  "icons": {
+    "16": "public/icons/icon111.png",
+    "48": "public/icons/icon111.png",
+    "128": "public/icons/icon111.png"
+  },
+  "web_accessible_resources": [
+    {
+      "resources": ["public/icons/*"],
+      "matches": ["<all_urls>"]
+    }
+  ]
+}
