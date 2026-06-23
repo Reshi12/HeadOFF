@@ -1,0 +1,31 @@
+{
+  "name": "handoff",
+  "version": "1.0.0",
+  "description": "Carry the thread. Drop the repeat-yourself. Transfer AI conversations between ChatGPT, Claude, and Gemini.",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "icons": "node scripts/generate-icons.mjs"
+  },
+  "keywords": ["chrome-extension", "ai", "chatgpt", "claude", "gemini", "context-transfer"],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "idb": "^8.0.3",
+    "react": "^19.2.7",
+    "react-dom": "^19.2.7",
+    "uuid": "^14.0.1"
+  },
+  "devDependencies": {
+    "@crxjs/vite-plugin": "^2.0.0-beta.33",
+    "@types/chrome": "^0.2.0",
+    "@types/react": "^19.2.17",
+    "@types/react-dom": "^19.2.3",
+    "@types/uuid": "^10.0.0",
+    "@vitejs/plugin-react": "^6.0.2",
+    "typescript": "^6.0.3",
+    "vite": "^8.0.16"
+  }
+}
